@@ -2,15 +2,18 @@
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./page.module.css";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Dashboard from "./@layout/Dashboard";
+import { Button } from "@mui/material";
 
 export default function Home() {
   const [anchorEl, setAnchorEl] = useState(null);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    setSelectedButton(Button);
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -28,16 +31,19 @@ export default function Home() {
             display: "flex",
             flexDirection: "column",
             textAlign: "left",
-            gap: "20px",
+            gap: "10px",
+            position:"fixed",
+            zIndex: "1",
           }}
         >
+
           <Button
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ fontSize: "22px", color: "#FFF", alignSelf: "start" }}
+            style={{ fontSize: "20px", color: "#FFF", alignSelf: "start", whiteSpace: "nowrap", flexShrink: "inherit", }}
           >
             Dashboard
           </Button>
@@ -69,12 +75,12 @@ export default function Home() {
           </Menu>
 
           <Button
-            id="basic-button"
+            id="basic-Button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ fontSize: "22px", color: "#FFF", alignSelf: "start" }}
+            style={{ fontSize: "20px", color: "#FFF", alignSelf: "start" }}
           >
             Super Admin
           </Button>
@@ -84,7 +90,7 @@ export default function Home() {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              "aria-labelledby": "basic-Button",
             }}
           >
             <MenuItem onClick={handleClose}>
@@ -105,12 +111,12 @@ export default function Home() {
           </Menu>
 
           <Button
-            id="basic-button"
+            id="basic-Button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ fontSize: "22px", color: "#FFF", alignSelf: "start" }}
+            style={{ fontSize: "20px", color: "#FFF", alignSelf: "start" }}
           >
             Admin
           </Button>
@@ -120,7 +126,7 @@ export default function Home() {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              "aria-labelledby": "basic-Button",
             }}
           >
             <MenuItem onClick={handleClose}>
@@ -141,12 +147,12 @@ export default function Home() {
           </Menu>
 
           <Button
-            id="basic-button"
+            id="basic-Button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ fontSize: "22px", color: "#FFF", alignSelf: "start" }}
+            style={{ fontSize: "20px", color: "#FFF", alignSelf: "start", whiteSpace: "nowrap", }}
           >
             Student Name
           </Button>
@@ -156,7 +162,7 @@ export default function Home() {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              "aria-labelledby": "basic-Button",
             }}
           >
             <MenuItem onClick={handleClose}>
@@ -181,7 +187,7 @@ export default function Home() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ fontSize: "22px", color: "#FFF", alignSelf: "start" }}
+            style={{ fontSize: "20px", color: "#FFF", alignSelf: "start" }}
           >
             Status
           </Button>
@@ -211,9 +217,12 @@ export default function Home() {
             </MenuItem>
           </Menu>
         </div>
-        <div style={{ width: "85%", padding: "20px" }}>
+
+        <div style={{ height:"100vh" , width: "100vw", padding: "20px", marginLeft:"15%"}}>
           <h1>Main Page</h1>
+          <Dashboard/>
         </div>
+
       </div>
     </>
   );
