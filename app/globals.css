@@ -56,14 +56,29 @@ body {
 */
 
 
-@media screen and (min-width: 480px){
+@media screen and (min-width: 320px){
   body{
     background-color: #8ACDD7;
   }
 }
 
-@media screen and (min-width: 680px){
+@media screen and (min-width: 425px){
   body{
     background-color: #B6C4B6;
   }
 }
+
+@media screen and (min-width:768px) {
+  body{
+    background-color: #FFF;
+  }
+}
+
+/* button css targeted */
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+  /* background-color: #DDF2FD; */
+  background-color: #A0BFE0;
+  color: #000 !important;
+  
+}
+
